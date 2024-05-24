@@ -25,6 +25,33 @@ public class Mission02 {
 		int a = 1 + d;
 		byte qwe = (byte) (d + d);
 		float b = d  +a;
+		
+		// 점수가 90이상 -> a
+		// 80이상 -> b
+		// 70이상 -> c
+		// 60이상 -> d
+		// 60이하 -> f
+		
+//		if (average >= 90) System.out.println("a");
+//		else if (average >= 80) System.out.println("b");
+//		else if (average >= 70) System.out.println("c");
+//		else if (average >= 50) System.out.println("d");
+//		else System.out.println("f");
+		
+		switch(averageInt / 10) {
+			case 10:
+			case 9:
+				System.out.println("a");
+			case 8:
+				System.out.println("b");
+			case 7:
+				System.out.println("c");
+			case 6:
+				System.out.println("d");
+			default:
+				System.out.println("f");
+				
+		}
 	}
 
 }
