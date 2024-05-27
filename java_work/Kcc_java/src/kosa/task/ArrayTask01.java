@@ -3,7 +3,7 @@ package kosa.task;
 public class ArrayTask01 {
 
 	public static void main(String[] args) {
-		int number = 7;
+		int number = 5;
 		
 		// 1-1
 		taskMethod1_1(number);
@@ -301,7 +301,7 @@ public class ArrayTask01 {
 
 	private static void taskMethod1_10(int number) {
 		System.out.println("1-10) number = " + number);
-		int idx5 = 1;
+		int idx = 1;
 		
 		for (int i = 0; i < number; i++) {
 			for (int j = number - i; j > 1; j--) {
@@ -309,7 +309,7 @@ public class ArrayTask01 {
 			}
 			
 			for (int h = 0; h <= i; h++) {
-				System.out.printf("%3d", idx5++);
+				System.out.printf("%3d", idx++);
 			}
 			System.out.println();
 		}
@@ -318,18 +318,18 @@ public class ArrayTask01 {
 
 	private static void taskMethod1_9(int number) {
 		System.out.println("1-9) number = " + number);
-		int idx4 = 0;
+		int idx = 0;
 		
 		for (int i = 0; i < number; i++) {
-			for (int j = idx4; j < number; j++) {
+			for (int j = idx; j < number; j++) {
 				System.out.print(j % number + 1 + " ");
 			}
 			
-			for (int h = 0; h < idx4; h++) {
+			for (int h = 0; h < idx; h++) {
 				System.out.print(h % number + 1 + " ");
 			}
 			System.out.println();
-			idx4++;
+			idx++;
 		}
 		System.out.println();
 	}
@@ -348,11 +348,11 @@ public class ArrayTask01 {
 
 	private static void taskMethod1_7(int number) {
 		System.out.println("1-7) number = " + number);
-		int idx3 = 1;
+		int idx = 1;
 		
 		for (int i = number; i > 0; i--) {
 			for (int j = 0; j < i; j++) {
-				System.out.printf("%3d", idx3++);
+				System.out.printf("%3d", idx++);
 			}
 			System.out.println();
 		}
@@ -361,7 +361,7 @@ public class ArrayTask01 {
 
 	private static void taskMethod1_6(int number) {
 		System.out.println("1-6) number = " + number);
-		int[] arr2 = new int[] {1, 2, 3, 4, 5};
+		int[] arr = new int[] {1, 2, 3, 4, 5};
 		
 		for (int i = number; i > 0; i--) {
 			for (int j = 0; j < i; j++) {
@@ -374,10 +374,10 @@ public class ArrayTask01 {
 
 	private static void taskMethod1_5(int number) {
 		System.out.println("1-5) number = " + number);		
-		int idx2 = 1;
+		int idx = 1;
 		for (int i = 1; i <= number; i++) {
 			for (int j = 0; j < i; j++) {
-				System.out.printf("%3d",idx2++);
+				System.out.printf("%3d",idx++);
 			}
 			System.out.println();
 		}
@@ -427,11 +427,11 @@ public class ArrayTask01 {
 
 	private static void taskMethod1_1(int number) {
 		System.out.println("1-1) number =" + number);
-		int idx1 = 1;
+		int idx = 1;
 		
 		for (int i = 0; i < number; i++) {
 			for (int j = 0; j < number; j++) {
-				System.out.printf("%3d", idx1++);
+				System.out.printf("%3d", idx++);
 			}
 			System.out.println();
 		}
