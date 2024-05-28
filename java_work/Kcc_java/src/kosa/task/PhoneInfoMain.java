@@ -74,7 +74,6 @@ public class PhoneInfoMain {
 			}
 		}
 		
-
 		throw new Exception("검색 기록이 없습니다.");
 	}
 }
