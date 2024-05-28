@@ -31,8 +31,7 @@ public class PhoneInfoMain {
 					}
 					break;
 				case 4:
-					System.out.println("프로그"
-							+ "램 종료");
+					System.out.println("프로그램 종료");
 					return;
 			}
 		}
