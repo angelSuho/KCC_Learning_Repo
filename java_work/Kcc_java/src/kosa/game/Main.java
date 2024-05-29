@@ -5,14 +5,18 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		BaseBall baseBall = new BaseBall();
+		BaseBallGame baseBall = new BaseBallGame();
 		
 		boolean isFlag = true;
+		int idx = 0;
 		while (isFlag) {
+			idx++;
 			String number = sc.nextLine();
-			
-			isFlag = baseBall.isNumberEquals(number, isFlag);
+			RoundNumber inputNumber = new RoundNumber(number);
+			isFlag = baseBall.isNumberEquals(inputNumber, isFlag);
 		}
+		
+		System.out.println(idx + "번째 성공");
 	}
 }
 
