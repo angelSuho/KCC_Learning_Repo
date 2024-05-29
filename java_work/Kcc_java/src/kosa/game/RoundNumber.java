@@ -1,5 +1,7 @@
 package kosa.game;
 
+import java.util.Arrays;
+
 public class RoundNumber {
 	int number[];
 	
@@ -10,6 +12,7 @@ public class RoundNumber {
 				(int)(randomNumber.charAt(1)),
 				(int)(randomNumber.charAt(2))
 			};
+		System.out.println(randomNumber);
 	}
 	
 	public RoundNumber(String number) {
@@ -22,6 +25,10 @@ public class RoundNumber {
 
 	public int[] getNumber() {
 		return this.number;
+	}
+	
+	public String printNum() {
+		return Arrays.toString(number);
 	}
 
 }

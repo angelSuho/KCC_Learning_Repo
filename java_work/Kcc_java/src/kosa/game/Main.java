@@ -7,11 +7,13 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		BaseBallGame baseBall = new BaseBallGame();
 		
+		System.out.println(baseBall.getRoundNumber());
 		boolean isFlag = true;
 		int idx = 0;
 		while (isFlag) {
 			idx++;
 			String number = sc.nextLine();
+
 			RoundNumber inputNumber = new RoundNumber(number);
 			isFlag = baseBall.isNumberEquals(inputNumber, isFlag);
 		}

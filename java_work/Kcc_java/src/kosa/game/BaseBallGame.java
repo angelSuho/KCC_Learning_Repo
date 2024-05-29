@@ -1,10 +1,18 @@
 package kosa.game;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BaseBallGame {
 	private RoundNumber roundNumber;
+	List<Integer> successIdx = new ArrayList<>();
 	
 	public BaseBallGame() {
 		roundNumber = new RoundNumber();
+	}
+	
+	public String getRoundNumber() {
+		return this.roundNumber.printNum();
 	}
 	
 	public boolean isNumberEquals(RoundNumber number, boolean isFlag) {
@@ -18,6 +26,7 @@ public class BaseBallGame {
 				}
 			} else {
 				strike++;
+				successIdx.add(number.getNumber()[i]);
 			}
 		}
 		
@@ -37,7 +46,7 @@ public class BaseBallGame {
 
 	private boolean containsOtherPosition(RoundNumber number, int i) {
 		for (int num: this.roundNumber.getNumber()) {
-			if (num == (int)number.getNumber()[i]) return true;
+			if (num == (int)number.getNumber()[i] && !successIdx.contains(num)) return true;
 		}
 		return false;
 	}
