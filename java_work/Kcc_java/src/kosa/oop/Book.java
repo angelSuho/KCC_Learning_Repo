@@ -1,9 +1,9 @@
 package kosa.oop;
 
 public class Book {
-	String bookName;
-	int price;
-	int discountPrice;
+	private String bookName;
+	private int price;
+	private int discountPrice;
 	
 	public Book() {}
 	public Book(String bookName, int balance) {
@@ -25,4 +25,25 @@ public class Book {
 		System.out.println(this.bookName + " 교재는 정가는 " + 
 				this.price + "원 할인된 가격은 " + this.discountPrice + "원 입니다.");
 	}
+	
+	public String getBookName() {
+		return bookName;
+	}
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public int getDiscountPrice() {
+		return discountPrice;
+	}
+	public void setDiscountPrice(int discountPrice) {
+		this.discountPrice = discountPrice;
+	}
+	
+	
 }

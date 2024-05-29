@@ -14,7 +14,7 @@ public class BookMain {
 		for (Book book: arr) {
 			book.generateDiscountedPrice();
 			book.printBookPrice();
-			totalDiscountPrice += book.discountPrice;
+			totalDiscountPrice += book.getDiscountPrice();
 		}
 				
 		System.out.println("총 금액: " + totalDiscountPrice + "원");
