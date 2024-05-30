@@ -6,13 +6,7 @@ public class RoundNumber {
 	int number[];
 	
 	public RoundNumber() {
-		String randomNumber = String.valueOf((int) (Math.random() * 1000) + 100);
-		this.number = new int[]{
-				(int)(randomNumber.charAt(0)), 
-				(int)(randomNumber.charAt(1)),
-				(int)(randomNumber.charAt(2))
-			};
-		System.out.println(randomNumber);
+		this.number = generateRandomNumber();
 	}
 	
 	public RoundNumber(String number) {
@@ -29,6 +23,20 @@ public class RoundNumber {
 	
 	public String printNum() {
 		return Arrays.toString(number);
+	}
+	
+	private int[] generateRandomNumber() {
+		int[] tmp = new int[3];
+		tmp[0] = (int) (Math.random() * 9) + 1;
+		do {
+			tmp[1] = (int) (Math.random() * 9) + 1;
+		} while(tmp[0] == tmp[1]);
+		do {
+			tmp[2] = (int) (Math.random() * 9) + 1;
+		} while(tmp[0] == tmp[2] && tmp[1] == tmp[2]);
+		
+		return tmp;
+		
 	}
 
 }

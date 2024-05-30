@@ -20,7 +20,7 @@ public class BaseBallGame {
 		int ball = 0;
 		
 		for (int i = 0; i < number.getNumber().length; i++) {
-			if (!(this.roundNumber.getNumber()[i] == number.getNumber()[i])) {
+			if (!(this.roundNumber.getNumber()[i] == number.getNumber()[i] - 48)) {
 				if (containsOtherPosition(number, i)) {
 					ball++;
 				}
@@ -36,6 +36,7 @@ public class BaseBallGame {
 
 	private boolean printGameResult(boolean isFlag, int strike, int ball) {
 		if (strike == 3) {
+			System.out.println(strike + "S" + ball + "B");
 			System.out.println("3Strike");
 			isFlag = false;
 		} else {
