@@ -1,31 +1,28 @@
 package kosa.phone;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 // 전화번호 관리 전반적인 기능
 public class Manager {
 	private PhoneInfo[] arr;
-	private Scanner sc;
+//	private Scanner sc;
 	private int count = 0;
 	
 	public Manager() {
 		arr = new PhoneInfo[100];
-		sc = new Scanner(System.in);
+//		sc = new Scanner(System.in);
 	}
 	
-	public void addPhoneInfo() {
+	public void addPhoneInfo(String menu) {
 		// 키보드로부터 이름, 전화번호, 생년월일을 입력받아
 		// phoneInfo 객체를 생성해서 배열에 추가하는 것
 		try {
 			System.out.print("이름: ");
-			String name = sc.nextLine();
+			String name = DataInput.sc.nextLine();
 			System.out.print("전화번호: ");
-			String phoneNo = sc.nextLine();
+			String phoneNo = DataInput.sc.nextLine();
 			System.out.print("생년월일: ");
-			String birth = sc.nextLine();
+			String birth = DataInput.sc.nextLine();
 			
-			PhoneInfo phoneInfo = new PhoneInfo(name, phoneNo, birth);
+			PhoneInfo phoneInfo = generatePhoneInfo(menu, name, phoneNo, birth);
 			arr[count++] = phoneInfo;
 			System.out.println("전화번호가 등록 되었습니다.");
 		} catch(ArrayIndexOutOfBoundsException e) {
@@ -33,17 +30,48 @@ public class Manager {
 		}
 			
 	}
+
+	private PhoneInfo generatePhoneInfo(String menu, String name, String phoneNo, String birth) {
+		PhoneInfo phoneInfo = null;
+		switch(menu) {
+			case "1":
+				phoneInfo = new PhoneInfo(name, phoneNo, birth);
+				break;
+			case "2":
+				System.out.print("부서: ");
+				String dept = DataInput.sc.nextLine();
+				System.out.print("직책: ");
+				String position = DataInput.sc.nextLine();
+				phoneInfo = new Company(name, phoneNo, birth, dept, position);
+				break;
+			case "3":
+				System.out.print("전공: ");
+				String major = DataInput.sc.nextLine();
+				System.out.print("학번: ");
+				String year = DataInput.sc.nextLine();
+				phoneInfo = new Universe(name, phoneNo, birth, major, year);
+				break;
+		}
+		
+		return phoneInfo;
+	}
 	
-	public void listPhoneInfo() {
+	public void listPhoneInfo(String menu) {
 		for (int i = 0; i < count; i++) {
-			arr[i].show();
+			if (menu.equals("2") && arr[i] instanceof Company) {
+				arr[i].show();
+			} else if (menu.equals("3") && arr[i] instanceof Universe) {
+				arr[i].show();
+			} else if (menu.equals("1")) {
+				arr[i].show();
+			}
 		}
 	}
 	
 	public void searchPhoneInfo() throws Exception {
 		// 검색하고자하는 이름으로 1개의 PhoneInfo 객체의 내용을 출력한다.
 		System.out.print("검색 이름: ");
-		String inputName = sc.nextLine();
+		String inputName = DataInput.sc.nextLine();
 		for (int i = 0; i < count; i++) {
 			if (inputName.equals(inputName) ) {
 				arr[i].show();
