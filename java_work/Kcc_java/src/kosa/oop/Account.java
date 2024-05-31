@@ -15,7 +15,6 @@ public class Account {
 	// 생성자 호출 시점
 	// 생성자 구현 방법
 	public Account() {} // default 생성자(기본적으로 아무런 생성자가 없다면,자동 생성됨)
-	
 	public Account(String accountNo, String ownerName, int balance) {
 		this.accountNo = accountNo;
 		this.ownerName = ownerName;
@@ -36,6 +35,28 @@ public class Account {
 		this.balance -= amount;
 		return amount;
 	}
-	
-	
+
+	public String getAccountNo() {
+		return accountNo;
+	}
+
+	public void setAccountNo(String accountNo) {
+		this.accountNo = accountNo;
+	}
+
+	public String getOwnerName() {
+		return ownerName;
+	}
+
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
+	}
+
+	public int getBalance() {
+		return balance;
+	}
+
+	public void setBalance(int balance) {
+		this.balance = balance;
+	}
 }
