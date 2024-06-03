@@ -1,4 +1,4 @@
-package kosa.oop2;
+package kosa.oop2.task;
 
 public class User {
 	private String name;

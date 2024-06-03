@@ -1,4 +1,4 @@
-package kosa.oop2;
+package kosa.oop2.task;
 
 import java.util.ArrayList;
 import java.util.List;
