@@ -1,13 +1,17 @@
 package kosa.phone;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // 전화번호 관리 전반적인 기능
 public class Manager {
-	private PhoneInfo[] arr;
+//	private PhoneInfo[] arr;
+	private List<PhoneInfo> arr;
 //	private Scanner sc;
-	private int count = 0;
+//	private int count = 0;
 	
 	public Manager() {
-		arr = new PhoneInfo[100];
+		arr = new ArrayList<PhoneInfo>();
 //		sc = new Scanner(System.in);
 	}
 	
@@ -22,8 +26,7 @@ public class Manager {
 			System.out.print("생년월일: ");
 			String birth = DataInput.sc.nextLine();
 			
-			PhoneInfo phoneInfo = generatePhoneInfo(menu, name, phoneNo, birth);
-			arr[count++] = phoneInfo;
+			arr.add(generatePhoneInfo(menu, name, phoneNo, birth));
 			System.out.println("전화번호가 등록 되었습니다.");
 		} catch(ArrayIndexOutOfBoundsException e) {
 			System.out.println("허용된 등록 크기는 " + 10 + "명입니다.");
@@ -57,13 +60,13 @@ public class Manager {
 	}
 	
 	public void listPhoneInfo(String menu) {
-		for (int i = 0; i < count; i++) {
-			if (menu.equals("2") && arr[i] instanceof Company) {
-				arr[i].show();
-			} else if (menu.equals("3") && arr[i] instanceof Universe) {
-				arr[i].show();
+		for (int i = 0; i < arr.size(); i++) {
+			if (menu.equals("2") && arr.get(i).getClass().equals(Company.class)) {
+				arr.get(i).show();
+			} else if (menu.equals("3") && arr.get(i).getClass().equals(Universe.class)) {
+				arr.get(i).show();
 			} else if (menu.equals("1")) {
-				arr[i].show();
+				arr.get(i).show();
 			}
 		}
 	}
@@ -72,9 +75,9 @@ public class Manager {
 		// 검색하고자하는 이름으로 1개의 PhoneInfo 객체의 내용을 출력한다.
 		System.out.print("검색 이름: ");
 		String inputName = DataInput.sc.nextLine();
-		for (int i = 0; i < count; i++) {
+		for (int i = 0; i < arr.size(); i++) {
 			if (inputName.equals(inputName) ) {
-				arr[i].show();
+				arr.get(i).show();
 				return;
 			}
 		}
@@ -84,9 +87,9 @@ public class Manager {
 
 	public void updatePhoneInfo(String name, String phoneNo) throws Exception {
 		// 이름을 입력 -> 해당 phoneInfo 추출 -> 수정 전화번호 입력 -> 전화번호 수정이 완료
-		for (int i = 0; i < count; i++) {
-			if (arr[i].getName().equals(name)) {
-				arr[i].setPhoneNo(phoneNo);
+		for (int i = 0; i < this.arr.size(); i++) {
+			if (arr.get(i).getName().equals(name)) {
+				arr.get(i).setPhoneNo(phoneNo);
 				return;
 			}
 		}
@@ -96,27 +99,25 @@ public class Manager {
 
 	public void deletePhoneInfo(String name) throws Exception {
 		// 이름 입력 -> 대상 객체 검색 -> 인덱스 찾기 -> 해당 객체 삭제
-		for (int i = 0; i < this.count; i++) {
-			if (this.arr[i].getName().equals(name)) {
-				if (arrIndexPull(i)) {
-					this.count--;
-					return;
-				}
+		for (int i = 0; i < this.arr.size(); i++) {
+			if (this.arr.get(i).getName().equals(name)) {
+				arr.remove(i);
+				return;
 			}
 		}
 		throw new Exception("이름에 맞는 조회 내용이 없습니다.");
 	}
 	
-	private boolean arrIndexPull(int idx) {
-		if (idx == this.count - 1) {
-			this.arr[idx] = null;
-			return true;
-		}
-		
-		for (int i = idx; i < this.count; i++) {
-			this.arr[idx] = this.arr[idx + 1];
-		}
-		
-		return true;
-	}
+//	private boolean arrIndexPull(int idx) {
+//		if (idx == this.count - 1) {
+//			this.arr.add(idx, null);
+//			return true;
+//		}
+//		
+//		for (int i = idx; i < this.count; i++) {
+//			this.arr.add(idx, this.arr.get(idx+1));
+//		}
+//		
+//		return true;
+//	}
 }

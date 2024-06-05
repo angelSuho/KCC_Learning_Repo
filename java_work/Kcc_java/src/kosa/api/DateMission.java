@@ -11,16 +11,21 @@ public class DateMission {
 		// 키보드 -> 날짜 입력 2014/06/04
 		// 입사일을 입력받아 -> 몇년 몇개월 재직중인지
 		Scanner sc = new Scanner(System.in);
-		System.out.print("입사일 입력: ");
-		String input = sc.nextLine();
 		
-		DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
 		Date date = null;
-		try {
-			date = df.parse(input);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		while(true) {
+			System.out.print("입사일 입력: ");
+			String input = sc.nextLine();
+			
+			DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+			try {
+				date = df.parse(input);
+				break;
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				System.out.println(e.getMessage());
+				System.out.println("잘못된 입사일 입니다. (yyyy/MM/dd)");
+			}
 		}
 		
 		Date now = new Date();
