@@ -1,5 +1,8 @@
 package kosa.phone;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 public class Main {
 	
 //	private static final Scanner sc = new Scanner(System.in);
@@ -8,9 +11,10 @@ public class Main {
 		Manager manager = new Manager();
 		
 		while(true) {
-			System.out.println("1.추가 2.전체출력 3.검색 4.수정 5.삭제 6.종료");
+			System.out.println("1.추가 2.전체출력 3.검색 4.수정 5.삭제 6.정렬 7.종료");
 			System.out.print("메뉴 입력: ");
-			String menu = DataInput.sc.nextLine();
+			String input = DataInput.sc.nextLine();
+			String menu = input;
 			
 			switch(menu) {
 				case "1":
@@ -37,7 +41,7 @@ public class Main {
 						System.out.print("이름 입력: ");
 						String name = DataInput.sc.nextLine();
 						System.out.print("전화번호 입력: ");
-						String phoneNo = DataInput.sc.nextLine();
+						String phoneNo = input;
 						
 						manager.updatePhoneInfo(name, phoneNo);
 					} catch (Exception e) {
@@ -54,6 +58,13 @@ public class Main {
 					}
 					break;
 				case "6":
+					System.out.println("정렬 기준을 선택하세요. 1.생년월일 2.이름순 3.번호순");
+					System.out.print("입력: ");
+					int inputMenu = Integer.parseInt(DataInput.sc.nextLine());
+					manager.calculateSortArray(inputMenu);
+					System.out.println("정렬이 완료 되었습니다.");
+					break;
+				case "7":
 					System.out.println("프로그램 종료");
 					return;
 			}

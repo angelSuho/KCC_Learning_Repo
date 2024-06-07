@@ -1,6 +1,8 @@
 package kosa.phone;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 // 전화번호 관리 전반적인 기능
@@ -59,6 +61,14 @@ public class Manager {
 		return phoneInfo;
 	}
 	
+	public List<PhoneInfo> getArr() {
+		return arr;
+	}
+
+	public void setArr(List<PhoneInfo> arr) {
+		this.arr = arr;
+	}
+
 	public void listPhoneInfo(String menu) {
 		for (int i = 0; i < arr.size(); i++) {
 			if (menu.equals("2") && arr.get(i).getClass().equals(Company.class)) {
@@ -106,6 +116,41 @@ public class Manager {
 			}
 		}
 		throw new Exception("이름에 맞는 조회 내용이 없습니다.");
+	}
+	
+	public void calculateSortArray(int input) {	
+		switch(input) {
+		case 1:
+			Collections.sort(this.arr, new Comparator<PhoneInfo>() {
+
+				@Override
+				public int compare(PhoneInfo o1, PhoneInfo o2) {
+					if (o1.getBirth().compareTo(o2.getBirth()) > 0)
+						return 1;
+					return -1;
+				}
+			});
+		case 2:
+			Collections.sort(this.arr, new Comparator<PhoneInfo>() {
+
+				@Override
+				public int compare(PhoneInfo o1, PhoneInfo o2) {
+					if (o1.getName().compareTo(o2.getName()) > 0)
+						return 1;
+					return -1;
+				}
+			});
+		case 3:
+			Collections.sort(this.arr, new Comparator<PhoneInfo>() {
+				
+				@Override
+				public int compare(PhoneInfo o1, PhoneInfo o2) {
+					if (o1.getPhoneNo().compareTo(o2.getPhoneNo()) > 0)
+						return 1;
+					return -1;
+				}
+			});
+		}
 	}
 	
 //	private boolean arrIndexPull(int idx) {
