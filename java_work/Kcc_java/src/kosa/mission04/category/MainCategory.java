@@ -1,21 +1,15 @@
-package kosa.mission04;
+package kosa.mission04.category;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainCategory {
-
-    private String name;
+public class MainCategory extends Category {
     private List<SubCategory> subCategories;
 
     public MainCategory() {}
     public MainCategory(String name) {
-        this.name = name;
+        super(name);
         this.subCategories  = new ArrayList<>();
-    }
-
-    public String getName() {
-        return this.name;
     }
 
     public List<SubCategory> getSubCategories() {
@@ -26,13 +20,8 @@ public class MainCategory {
         this.subCategories = subCategories;
     }
 
+    @Override
     public void printAll() {
-        for (SubCategory subCategory : subCategories) {
-            subCategory.printAll();
-        }
-    }
-
-    public void printSubCategory() {
         for (SubCategory subCategory : subCategories) {
             System.out.println(subCategory.getName());
             System.out.println("--------------");

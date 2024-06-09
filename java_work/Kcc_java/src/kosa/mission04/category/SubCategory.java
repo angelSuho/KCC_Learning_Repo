@@ -1,20 +1,17 @@
-package kosa.mission04;
+package kosa.mission04.category;
+
+import kosa.mission04.Product;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubCategory {
-    private String name;
+public class SubCategory extends Category {
     private List<Product> products;
 
     public SubCategory() {}
     public SubCategory(String name) {
-        this.name = name;
+        super(name);
         this.products = new ArrayList<>();
-    }
-
-    public String getName() {
-        return name;
     }
 
     public List<Product> getProducts() {
@@ -25,6 +22,7 @@ public class SubCategory {
         products.add(product);
     }
 
+    @Override
     public void printAll() {
         for (Product product : products) {
             product.printProduct();

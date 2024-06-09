@@ -23,15 +23,11 @@ public class Customer {
     }
 
     public Role getRole() {
-        return role;
-    }
-
-    public String getBirth() {
-        return birth;
+        return this.role;
     }
 
     public String getNickname() {
-        return nickname;
+        return this.nickname;
     }
 
     public String getPhoneNumber() {
@@ -40,7 +36,7 @@ public class Customer {
 
     public void checkAdmin() throws Exception {
         if(!this.role.equals(Role.ADMIN)) {
-            throw new Exception("고객의 권한이 없습니다.");
+            throw new Exception("\033[1;91m고객의 권한이 없습니다.\033[0m");
         }
     }
 }

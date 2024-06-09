@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/LearningJavaSpring.iml" filepath="$PROJECT_DIR$/.idea/LearningJavaSpring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_work/Kcc_java/Kcc_java.iml" filepath="$PROJECT_DIR$/java_work/Kcc_java/Kcc_java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_work/RemoteSystemsTempFiles/RemoteSystemsTempFiles.iml" filepath="$PROJECT_DIR$/java_work/RemoteSystemsTempFiles/RemoteSystemsTempFiles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_work/java_work.iml" filepath="$PROJECT_DIR$/java_work/java_work.iml" />
     </modules>
   </component>
 </project>

@@ -1,4 +1,4 @@
-package kosa.mission04;
+package kosa.mission04.order;
 
 public enum Option {
 

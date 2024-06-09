@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="235c2df8-dae2-4cbc-884a-f646c78d5022" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java_work/Kcc_java/Kcc_java.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/order/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java_work/RemoteSystemsTempFiles/RemoteSystemsTempFiles.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java_work/java_work.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/LearningJavaSpring.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_work/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java_work/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/InputWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/InputWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/MainCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/category/MainCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/Mall.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/Mall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/order/Option.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/SubCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/category/SubCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission4/Customer.java" beforeDir="false" />
+    </list>
+    <list id="58a4317a-3497-4d7a-984d-650507ece8b5" name="Changes by woo0doo" comment="">
+      <change beforePath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/Customer.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/java_work/Kcc_java/src/kosa/mission04/Customer.java">
+      <ranges>
+        <range start1="25" end1="30" start2="25" end2="26" changelist="235c2df8-dae2-4cbc-884a-f646c78d5022" />
+        <range start1="33" end1="34" start2="29" end2="30" changelist="235c2df8-dae2-4cbc-884a-f646c78d5022" />
+        <range start1="42" end1="43" start2="38" end2="39" changelist="58a4317a-3497-4d7a-984d-650507ece8b5" />
+      </ranges>
+    </file>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2haM5KDe74XQc6cc3JfAUfdmz1p" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/agsoo/Desktop/project/TrendPick"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="kosa.mission04.Main" />
+      <module name="Kcc_java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kosa.mission04.category.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="235c2df8-dae2-4cbc-884a-f646c78d5022" name="Changes" comment="" />
+      <created>1717827552636</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717827552636</updated>
+    </task>
+    <servers />
+  </component>
+</project>
