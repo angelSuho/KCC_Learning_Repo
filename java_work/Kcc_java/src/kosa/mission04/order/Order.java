@@ -32,10 +32,10 @@ public class Order {
 
     public void printOrder() {
         System.out.println("주문 번호: " + orderId);
-        for (OrderItem orderItem : orderItems) {
-            orderItem.printOrderItem();
-            System.out.println("---");
-        }
+        
+        orderItems.stream()
+        	.forEach(o -> o.printOrderItem());
+        
         System.out.println("주문 시각: " + orderDateTime);
         System.out.println("주문 종류: " + option.getType());
         System.out.println("고객 성명: " + customer.getNickname());

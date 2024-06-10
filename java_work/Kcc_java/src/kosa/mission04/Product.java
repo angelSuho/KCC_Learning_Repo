@@ -47,9 +47,8 @@ public class Product {
 
     public void printProduct() {
         printProductExceptSizeQuantity();
-        for (Map.Entry<String, Long> stringIntegerEntry : sizeQuantities.entrySet()) {
-            System.out.println("사이즈: " + stringIntegerEntry.getKey() + ", 수량: " + stringIntegerEntry.getValue() + "개");
-        }
+        sizeQuantities.entrySet().stream()
+        		.forEach(e -> System.out.println("사이즈: " + e.getKey() + ", 수량: " + e.getValue() + "개"));
         System.out.println("---");
     }
 

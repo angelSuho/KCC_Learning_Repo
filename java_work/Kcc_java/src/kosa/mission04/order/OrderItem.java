@@ -32,5 +32,6 @@ public class OrderItem {
         System.out.println("제품명: " + product.getName());
         System.out.println("사이즈: " + this.size);
         System.out.println("수량: " + this.quantity);
+        System.out.println("---");
     }
 }

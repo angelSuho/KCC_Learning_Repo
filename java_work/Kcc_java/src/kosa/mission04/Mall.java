@@ -22,6 +22,7 @@ public class Mall {
         this.products = new ArrayList<>();
         this.totalAmount = 0;
         this.mainCategories = new ArrayList<>();
+        
         initCategory();
         initProducts();
         initAdmin();
@@ -32,12 +33,10 @@ public class Mall {
     }
 
     public MainCategory getMainCategoryByName(String name) throws Exception {
-        for (Category category : mainCategories) {
-            if (category.getName().equals(name)){
-                return (MainCategory) category;
-            }
-        }
-        throw new Exception("\033[1;91m대분류 카테고리의 이름이 알맞지 않습니다.\033[0m");
+    	return (MainCategory) mainCategories.stream()
+    			.filter(c -> c.getName().equals(name))
+    			.findFirst()
+    			.orElseThrow(() -> new Exception("\033[1;91m대분류 카테고리의 이름이 알맞지 않습니다.\033[0m"));
     }
 
     public Customer customerLogin(String phoneNumber) throws Exception {
@@ -46,6 +45,7 @@ public class Mall {
                 if (customer.getRole().equals(Role.ADMIN)) {
                     System.out.println("관리자님 환영합니다.\n");
                 }
+                
                 return customer;
             }
         }
@@ -72,10 +72,11 @@ public class Mall {
 
     public void printMainCategories() {
         System.out.println("대분류 카테고리 이름 : ");
-        for (Category mainCategory : mainCategories) {
-            System.out.println(mainCategory.getName());
+        
+        mainCategories.stream().forEach(c -> {
+        	System.out.println(c.getName());
             System.out.println("---------------");
-        }
+        });
     }
 
     public Product validProductName(List<String> option) throws Exception {
@@ -94,11 +95,9 @@ public class Mall {
     public SubCategory getSubCategoryByName(String name) throws Exception {
         for (Category mainCategory : mainCategories) {
             List<SubCategory> subCategories = ((MainCategory) mainCategory).getSubCategories();
-            for (SubCategory subCategory : subCategories) {
-                if (subCategory.getName().equals(name)) {
-                    return subCategory;
-                }
-            }
+            return subCategories.stream()
+            		.filter(s -> s.getName().equals(name))
+            		.findFirst().get();
         }
 
         throw new Exception("\033[1;91m대분류 카테고리의 이름이 알맞지 않습니다.\033[0m");
@@ -110,11 +109,12 @@ public class Mall {
 
     public void printOrders() {
         System.out.println("개별 주문 목록 보기");
-        for (Order order : orders) {
-            order.printOrder();
+        
+        orders.stream().forEach(order -> {
+        	order.printOrder();
             System.out.println("주문 금액: " + order.getOrderAmount() + "원");
             System.out.println("-------------");
-        }
+        });
     }
 
     public boolean isDuplicatePhoneNumber(String phoneNumber) {

@@ -111,15 +111,14 @@ public class Main {
         }
     }
 
-    private static int safeIntegerInput(Scanner sc) {
-        while (true) {
-            try {
-                return Integer.parseInt(sc.nextLine().trim());
-            } catch (NumberFormatException e) {
-                System.out.println("\033[1;91m잘못된 입력입니다. 다시 입력해주세요.\033[0m");
-                System.out.print("\033[1;93m입력: \033[0m");
-            }
+    private static int safeIntegerInput(Scanner sc) throws Exception {
+        try {
+            return Integer.parseInt(sc.nextLine().trim());
+        } catch (NumberFormatException e) {
+            System.out.println("\033[1;91m잘못된 입력입니다. 다시 입력해주세요.\033[0m");
+            System.out.print("\033[1;93m입력: \033[0m");
         }
+		throw new Exception("무엇인가가 잘못되었습니다.");
     }
 
     private static Customer loginProcess(Scanner sc, Mall mall) {
@@ -173,17 +172,19 @@ public class Main {
     private static void placeOrderProcess(Scanner sc, Mall mall, Customer customer) {
         try {
             System.out.print("상품 이름 입력: ");
-            String[] split = sc.nextLine().split(",");
+            
+            String[] productNames = sc.nextLine().split(",");
             List<OrderItem> orderItems = new ArrayList<>();
-            for (String s : split) {
-                String[] str = s.split("/");    // idx: [0] 상품명 [1] 사이즈 [2] 수량
-                List<String> inputs = Arrays.asList(str);
+            
+            for (String s : productNames) {
+                List<String> inputs = Arrays.asList(s.split("/")); // idx: [0] 상품명 [1] 사이즈 [2] 수량
                 orderItems.add(new OrderItem(mall.validProductName(inputs), inputs.get(1), Long.parseLong(inputs.get(2))));
             }
+            
             System.out.print("주문 방법 입력 /== 계좌 현금 카드 ==/ ");
             String type = sc.nextLine();
-
             Order order = new Order("ORD_" + Math.abs(UUID.randomUUID().getLeastSignificantBits()), customer, Option.getOption(type), orderItems);
+          
             mall.addOrder(order);
             System.out.println("\033[1;93m주문이 완료되었습니다!\033[0m"); //"\033[1;93m입력: \033[0m"
         } catch (Exception e) {
@@ -219,6 +220,7 @@ public class Main {
         }
 
         Product product = new Product(name, price, description, subCategory);
+        
         for (int i = 0; i < sizes.length; i++) {
             product.addSizeQuantity(sizes[i], Integer.parseInt(quantities[i]));
         }
