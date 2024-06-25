@@ -202,3 +202,100 @@ ON e.job_id = j.job_id
 JOIN locations l
 ON d.location_id = l.location_id
 AND l.city = 'Seattle';
+
+-- scott
+set serveroutput on;
+
+--DECLARE
+--   v_dept_rowtype DEPT%ROWTYPE;
+--BEGIN
+--	SELECT DEPTNO, DNAME, LOC INTO v_dept_rowtype
+--	FROM DEPT
+--	WHERE deptno = 40;
+--	
+--	DBMS_OUTPUT.PUT_LINE(v_dept_rowtype.deptno || ' ' || 
+--	v_dept_rowtype.dname || ' ' || v_dept_rowtype.loc);
+--END;
+
+--DECLARE
+--	v_no NUMBER := 7;
+--	v_score NUMBER := 80;
+--BEGIN
+--	-- 단수
+--	/*IF v_no = 7 THEN
+--		DBMS_OUTPUT.PUT_LINE('7이다');
+--	END IF;*/
+--	-- IF ~ ELSE ~ END IF
+--	/*IF v_no = 5 THN
+--		DBMS_OUTPUT.PUT_LINE('5이다');
+--	END IF;*/
+--	-- IF ~ ELSIF ~ END IF
+--	IF v_score >= 90 THEN
+--		DBMS_OUTPUT.PUT_LINE('A학점');
+--	ELSIF v_score >= 80 THEN
+--		DBMS_OUTPUT.PUT_LINE('B학점');
+--	ELSIF v_score >= 70 THEN
+--		DBMS_OUTPUT.PUT_LINE('C학점');
+--	ELSE
+--		DBMS_OUTPUT.PUT_LINE('F학점');
+--    END IF;
+--END;
+
+DECLARE
+	v_no NUMBER := ROUND(DBMS_RANDOM.VALUE(10, 120), -1);
+    v_avg_sal NUMBER;
+BEGIN
+    SELECT AVG(sal) INTO v_avg_sal FROM EMP WHERE deptno = v_no;
+	IF v_avg_sal >= 6000 THEN
+		DBMS_OUTPUT.PUT_LINE('높음');
+	ELSIF v_avg_sal >= 3000 THEN
+		DBMS_OUTPUT.PUT_LINE('보통');
+	ELSE
+		DBMS_OUTPUT.PUT_LINE('낮음');
+    END IF;
+    
+    DBMS_OUTPUT.PUT_LINE(v_no || ' ' || v_avg_sal);
+END;
+
+-- kcc
+SELECT * FROM student stu
+INNER JOIN score s
+on stu.sno = s.sno
+INNER JOIN scgrade sc
+on s.result between loscore and hiscore
+AND sc.grade > (SELECT grade FROM student e
+INNER JOIN score s
+on e.sno = s.sno and e.sname = '관우'
+INNER JOIN course c
+on s.cno = c.cno and c.cname = '일반화학'
+INNER JOIN scgrade
+on s.result between loscore and hiscore)
+INNER JOIN course c
+on s.cno = c.cno and c.cname = '일반화학';
+
+CREATE VIEW view_student AS
+SELECT stu.*, s.result, sc.grade, c.cname
+FROM student stu
+INNER JOIN score s
+ON stu.sno = s.sno
+INNER JOIN scgrade sc
+ON s.result BETWEEN sc.loscore AND sc.hiscore
+INNER JOIN course c
+ON s.cno = c.cno AND c.cname = '일반화학'
+WHERE sc.grade > (
+    SELECT sc.grade
+    FROM student e
+    INNER JOIN score s
+    ON e.sno = s.sno
+    INNER JOIN course c
+    ON s.cno = c.cno AND c.cname = '일반화학'
+    INNER JOIN scgrade sc
+    ON s.result BETWEEN sc.loscore AND sc.hiscore
+    WHERE e.sname = '관우'
+)
+AND c.cname = '일반화학';
+
+SELECT * FROM view_student;
+
+select * from emp;
+
