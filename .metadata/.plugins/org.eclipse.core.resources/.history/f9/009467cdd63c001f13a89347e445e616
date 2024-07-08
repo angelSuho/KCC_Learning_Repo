@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type='text/css'>
+/*
+	li {
+		display: inline;
+		padding: 5px 15px;
+		border-left: 1px solid #000;
+	}
+	
+	a {
+		text-decoration: none;
+		color: darkgreen;
+		font-weight: bold;
+		fint-size: 18px;
+	}
+*/
+</style>
+</head>
+<body>
+	<h2>목록태그</h2>
+	<ul>
+		<li><a href="#">아침</a>
+			<ul>
+				<li>토스트</li>
+				<li>우유</li>
+				<li>햄</li>
+			</ul>
+		</li>
+		<li><a href="#">점심</a></li>
+		<li><a href="#">저녁</a></li>
+	</ul>
+	<ol>
+		<li>Java</li>
+		<li>JSP</li>
+		<li>Oracle</li>
+	</ol>
+	
+	<h2>정의 목록</h2>
+	<dl>
+		<dt>제목</dt>
+		<dd>내용</dd>
+	</dl>
+	
+	<ul>
+		<li><a href="https://www.naver.com" target="_blank">네이버</a></li> <!-- 새 탭 -->
+		<li><a href="https://www.daum.net" target="_self">다음</a></li> <!-- 현재 페이지 -->
+	</ul>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<div>내용,,,,,,,,,,,,,,,,,,,,,,</div>
+	<div>내용,,,,,,,,,,,,,,,,,,,,,,</div>
+	<div>내용,,,,,,,,,,,,,,,,,,,,,,</div>
+	<div>내용,,,,,,,,,,,,,,,,,,,,,,</div>
+	<div>내용,,,,,,,,,,,,,,,,,,,,,,</div>
+</body>
+</html>

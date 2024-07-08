@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>목록태그</h2>
+	<ul>
+		<li>아침</li>
+		<li>점심</li>
+		<li>저녁</li>
+	</ul>
+</body>
+</html>
