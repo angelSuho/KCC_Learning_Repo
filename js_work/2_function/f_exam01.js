@@ -1,5 +1,5 @@
-// console.log(add(10, 20));
-// console.log(add2(10, 20));
+console.log(add(10, 20));
+console.log(add2(10, 20));
 
 // 선언적 함수
 function add(a, b) {

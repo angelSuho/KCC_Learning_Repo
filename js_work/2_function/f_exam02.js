@@ -1,9 +1,9 @@
-// 함수를 호출할 때, 함수의 파라미터 개수가 일치하지 않아도 오류 X
-function add(a, b, c) {
-  console.log(a, b, c);
-}
+  // 함수를 호출할 때, 함수의 파라미터 개수가 일치하지 않아도 오류 X
+  function add(a, b, c) {
+    console.log(a, b, c);
+  }
 
-add(10, 20, 30, 40);
+  add(10, 20, 30, 40);
 
 // arguments 객체가 있기 때문에, 파라미터를 입력하지 않아도, 입력된 argument 갯수만큼 사용할 수 있음.
 function sumAll() {
