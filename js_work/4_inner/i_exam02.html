@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        let timerId;
+        let isRunning = false;
+
+        function show() {
+            let now = new Date();
+            let hour = now.getHours();
+            let min = now.getMinutes();
+            let sec = now.getSeconds();
+            let timeMsg = hour + "시 " + min + "분 " + sec + "초";
+
+            document.fmt.display.value = timeMsg;
+            // timerId = setTimeout("show()", 1000); // 1초마다 show() 함수를 호출
+            // setTimeout() 함수는 한 번만 실행. 그러나, 함수 마지막에 show를 호출하면 반복 실행 가능
+        }
+
+        function startClock() {
+            if (!isRunning){
+                show();
+                isRunning = true;
+                timerId = setInterval("show()", 1000); // 1초마다 show() 함수를 호출
+            }
+        }
+
+        function stopClock() {
+            if (isRunning){
+                clearTimeout(timerId); // timerId를 비움으로써 setInterval을 멈춤
+                isRunning = false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="fmt">
+        <input type="text" name="display"><br/>
+        <input type="button" name="start" value="시작" onclick="startClock()">
+        <input type="button" name="stop" value="종료" onclick="stopClock()">        
+    </form>
+</body>
+</html>

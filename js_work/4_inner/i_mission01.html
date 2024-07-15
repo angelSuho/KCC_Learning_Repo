@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // 이미지를 랜덤하게 출력하는 예제
+        // 베열에 이미지 경로 추가 후, 랜덤한 수를 입력 받아 해당 이미지를 출력
+        let imgId = null;
+
+        let files = [
+            "../images/cat0.jpg",
+            "../images/cat1.jpg",
+            "../images/cat1.gif",
+            "../images/cat2.jpg",
+            "../images/cat2.gif",
+            "../images/cat3.jpg",
+            "../images/cat3.gif",
+            "../images/pic1.jpg",
+            "../images/pic2.jpg",
+            "../images/pic3.jpg",
+            "../images/pic4.jpg",
+            "../images/pic5.jpg",
+            "../images/pic6.jpg",
+            "../images/pic7.jpg",
+                  ];
+        
+        function view() {
+            let img = document.getElementById("img");
+            img.src = files[Math.floor(Math.random() * files.length)];
+        }
+        imgId = setInterval(view, 2000);
+        
+
+    </script>
+</head>
+<body>
+    <img id="img" src="../images/cat1.gif" alt="이미지">
+</body>
+</html>
