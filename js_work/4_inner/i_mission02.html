@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+            
+        // function isValid(str) {
+        //     for (let i = 0; i < str.length; i++) {
+        //         if (alphabets.indexOf(str.chatAt(i)) == -1){
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // }
+
+        function isValid(str) {
+            if (str.length == 1) {
+                if (!alphabets.includes(str)) {
+                    return false;
+                }
+                return true;
+            } else {
+                for (let i = 0; i < str.length; i++) {
+                    if (!alphabets.includes(str.charAt(i))) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+
+        function checkId() {
+            const id = document.fmt.id.value;
+            if (!isValid(id)) {
+                alert("아이디는 영문자만 가능합니다.");
+                return false;
+            }
+            return true;
+        }
+
+        function checkEmail() {
+            const email = document.fmt.email.value;
+            if (email.indexOf("@") == -1 || email.indexOf(".") == -1) {
+                alert("이메일 형식이 올바르지 않습니다.");
+                return false;
+            }
+            if (!isValid(email.charAt(0))) {
+                alert("이메일 첫글자는 영문자이어야합니다.");
+                return false;
+            }
+            return true;
+        }
+
+        function check() {
+            if (!checkId()) return;
+            if (!checkEmail()) return;
+            alert("전송되었습니다.");
+        }
+    </script>
+</head>
+<body>
+    <form name="fmt" action="">
+        아이디: <input type="text" name="id"><br/>
+        이메일: <input type="text" name="email"><br/>
+        <input type="button" value="전송" onclick="check()">
+    </form>
+</body>
+</html>

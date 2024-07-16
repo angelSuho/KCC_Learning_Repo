@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        var data = 'Global data';
+        var obj1 = { data: 'obj1 data' };
+        var obj2 = { data: 'obj2 data' };
+
+        function func() {
+            console.log(this.data);
+        }
+
+        func(); // Global data
+        func.apply(obj1); // obj1 data
+        func.call(obj2); // obj2 data
+        // apply와 call은 this를 지정할 수 있다.
+        // apply는 배열로 인자를 받는다.
+        // func.apply(obj1, [1, 2, 3]);
+        // call은 쉼표(,)로 구분된 인자를 받는다.
+        // func.call(obj2, 1, 2, 3);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
