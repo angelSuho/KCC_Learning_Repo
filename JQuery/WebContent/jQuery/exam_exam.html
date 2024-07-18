@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Attribute Selectors</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $("#button1").click(function () {
+        // Highlight all input elements with a 'name' attribute
+        $("input[name]").css("background", "silver");
+      });
+
+      $("#button2").click(function () {
+        // Highlight input elements with a 'value' attribute exactly matching 'jQuery'
+        $("input[value='jQuery']").css("background", "silver");
+      });
+
+      $("#button3").click(function () {
+        // Highlight input elements with a 'value' attribute NOT containing 'jQuery'
+        $("input[value!='jQuery']").css("background", "silver");
+      });
+
+      $("#button4").click(function () {
+        // Highlight input elements with a 'value' attribute containing the word '셀렉터'
+        $("input[value~='셀렉터']").css("background", "silver"); // Attribute value contains the word
+      });
+
+      $("#button5").click(function () {
+        // Highlight input elements with a 'value' attribute containing '셀렉터' anywhere within the value
+        $("input[value*='셀렉터']").css("background", "silver"); // Attribute value contains substring
+      });
+
+      $("#button6").click(function () {
+        // Highlight input elements with a 'value' attribute starting with '셀렉터'
+        $("input[value^='셀렉터']").css("background", "silver"); // Attribute value starts with
+      });
+
+      $("#button7").click(function () {
+        // Highlight input elements with a 'value' attribute ending with '셀렉터'
+        $("input[value$='셀렉터']").css("background", "silver"); // Attribute value ends with
+      });
+
+      $("#btn_clear").click(function () {
+        // Reset all input backgrounds to white
+        $("input[type='text']").css("background", "white");
+      });
+    });
+  </script>
+</head>
+<body>
+  <h2>jQuery Attribute Selectors</h2>
+  <p>jQuery Attribute Selectors Test</p>
+  <div id="targets">
+    <input type="text" name="case1" value="jQuery" /><br/>
+    <input type="text" name="case2" value="jQuery 셀렉터" /><br/>
+    <input type="text" name="case3" value="jQuery 셀렉터 테스트" /><br/>
+    <input type="text" name="case4" value="셀렉터 테스트" /><br/>
+    <input type="text" name="case5" value="셀렉터테스트" /><br/>
+    <input type="text" name="case6" value="테스트" /><br/>
+  </div>
+  <div>
+    <input type="button" id="button1" value="name 속성을 가짐" />
+    <input type="button" id="button2" value="'jQuery' 일치" />
+    <input type="button" id="button3" value="'jQuery' 미일치" />
+    <input type="button" id="button4" value="'셀렉터' 단어 포함" />
+    <input type="button" id="button5" value="'셀렉터' 포함" />
+    <input type="button" id="button6" value="'셀렉터'로 시작" />
+    <input type="button" id="button7" value="'셀렉터'로 끝남" />
+    <input type="button" id="btn_clear" value="Clear" />
+  </div>
+</body>
+</html>
