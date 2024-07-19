@@ -1,24 +1,32 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
     <script>
-       
+    $(function() {
+    	$('#my-form').submit(function(e) {
+      	  const name =  $('#name').val();
+      	  const password = $('#password').val();
+      	  
+      	  console.log(name + ":" + password);
+      	  e.preventDefault();
+         });
+    });
     </script>
 </head>
 <body>
     <form id="my-form" action="server.jsp">
         <table>
             <tr>
-                <td>Ïù¥Î¶Ñ: </td>
+                <td>¿Ã∏ß: </td>
                 <td><input type="text" name="name" id="name" /></td>
             </tr>
             <tr>
-                <td>ÎπÑÎ∞ÄÎ≤àÌò∏: </td>
+                <td>∫Òπ–π¯»£: </td>
                 <td><input type="password" name="password" id="password" /></td>
             </tr>
         </table>
-        <input type="submit" value="Ï†úÏ∂ú" />
+        <input type="submit" value="¡¶√‚" />
     </form>
 </body>
 </html>

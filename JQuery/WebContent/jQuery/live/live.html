@@ -5,7 +5,24 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
-	
+	$(function() {
+		$('button').click(function() {
+			$('body').append('<div> Hello jQuery!!!' + 
+					$('div').size() + 'th</div>'
+			);
+		});
+		
+		// 정적인 컨텐츠(로딩)에게만 이벤트가 동작한다.
+		// 즉, 로딩 이후에 추가로 생긴 컨텐츠에는 이벤트가 동작하지 않는다.
+		/* $('div').on('click', function() {
+			alert($(this).html());
+		}); */
+		
+		
+		$('body').on('click', 'div', function() {
+			alert($(this).html());
+		})
+	});
 </script>
 </head>
 <body>
