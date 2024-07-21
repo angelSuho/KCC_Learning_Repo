@@ -1,0 +1,83 @@
+/* 전체 페이지에 대한 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background: #f4f4f4;
+    color: #333;
+}
+
+/* 장바구니 및 제품 정보 영역 스타일 */
+#shopping-cart {
+    width: 80%;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 테이블 스타일 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f8f8f8;
+}
+
+/* 버튼 스타일 */
+button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #5C67F2;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #4a54e1;
+}
+
+/* 입력 필드 스타일 */
+input[type="text"],
+input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 4px 0;
+    width: 50%;
+}
+
+/* 총계 및 체크아웃 버튼 영역 */
+.total, .checkout-button {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.checkout-button {
+    background-color: #4CAF50; /* 녹색 배경 */
+}
+
+.checkout-button:hover {
+    background-color: #45a049; /* 밝은 녹색 */
+}
+
+/* 삭제 버튼 스타일 변경 */
+.delete-btn {
+    background-color: #f44336; /* 빨간색 배경 */
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f; /* 진한 빨간색 */
+}

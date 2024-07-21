@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>장바구니</title>
+
+    <link rel="stylesheet" type="text/css" href="cart_exam.css">
+</head>
+<body>
+    <div id="shopping-cart">
+        <h1>장바구니</h1>
+        <form>
+            <input type="text" id="insert-pname" name="pname" placeholder="상품명을 입력해주세요.">
+            <input type="text" id="insert-pprice" name="pprice" placeholder="상품가격을 입력해주세요.">
+            <input type="text" id="insert-pquantity" name="pquantity" placeholder="수량을 입력해주세요.">
+            <button type="submit" id="addCart">장바구니에 추가</button>
+        </form> 
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>상품</th>
+                    <th>가격</th>
+                    <th>수량</th>
+                    <th>소계</th>
+                    <th>삭제</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="product-name">마이크로소프트 Xbox 컨트롤러</td>
+                    <td class="product-price">₩57000원</td>
+                    <td class="quantity">
+                        <button class="quantity-decrease">-</button>
+                        <input type="text" value="1" class="quantity-input">
+                        <button class="quantity-increase">+</button>
+                    </td>
+                    <td class="product-subtotal">₩57000원</td>
+                    <td><button class="delete-btn">X</button></td>
+                </tr>
+                <tr>
+                    <td class="product-name">닛모트 B21 미니어처 클래식 콘솔</td>
+                    <td class="product-price">₩69000원</td>
+                    <td class="quantity">
+                        <button class="quantity-decrease">-</button>
+                        <input type="text" value="1" class="quantity-input">
+                        <button class="quantity-increase">+</button>
+                    </td>
+                    <td class="product-subtotal">₩69000원</td>
+                    <td><button class="delete-btn">X</button></td>
+                </tr>
+                <tr>
+                    <td class="product-name">스네즈 클래식 미니 게임 콘솔</td>
+                    <td class="product-price">₩69000원</td>
+                    <td class="quantity">
+                        <button class="quantity-decrease">-</button>
+                        <input type="text" value="1" class="quantity-input">
+                        <button class="quantity-increase">+</button>
+                    </td>
+                    <td class="product-subtotal">₩69000원</td>
+                    <td><button class="delete-btn">X</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="total">
+            <span class="total-label">총 계: </span>
+            <span class="total-cost">₩195000원</span>
+        </div>
+        <button type="button" id="charge-btn">주문하기</button>
+    </div>
+
+    <script src="jquery.js" type="text/javascript"></script>
+    <script src="cart_exam.js" type="text/javascript"></script>
+</body>
+</html>

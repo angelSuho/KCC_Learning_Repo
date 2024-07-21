@@ -1,47 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+// 湲곕낯肄붾뱶
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript">
+<script src="jquery.js" type="text/javascript"></script>
+<script type='text/javascript'>
 	$(function() {
-		$('button').click(function() {
-			$('body').append('<div> Hello jQuery!!!' + 
-					$('div').size() + 'th</div>'
-			);
-		});
+		$('div').append($('b'));
+		// $('span').prependTo($('b'));
 		
-		// 정적인 컨텐츠(로딩)에게만 이벤트가 동작한다.
-		// 즉, 로딩 이후에 추가로 생긴 컨텐츠에는 이벤트가 동작하지 않는다.
-		/* $('div').on('click', function() {
-			alert($(this).html());
-		}); */
+		// $('b').prependTo($('body'));
+		// $('div').before($('b'));
 		
+		// $('span').insertAfter($('b'));
+		// $('b').insertBefore($('span'));
 		
-		$('body').on('click', 'div', function() {
-			alert($(this).html());
-		})
+		alert($('body').html());
 	});
 </script>
 </head>
 <body>
-	<button>Add Button</button>
-	<div>Hello jQuery!!!</div>
+	<div>jQuery</div>
+	
+	<span>JavaScript</span>
+	
+	<b>Java</b>
+	 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
