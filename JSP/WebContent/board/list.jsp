@@ -18,7 +18,7 @@
 	
 	 	
 	BoardDao2 dao = BoardDao2.getInstance();
-	List<Board> list = dao.listBoard(search);
+	List<Board> list = dao.listBoard(map);
 %>
 <!DOCTYPE html>
 <html>
