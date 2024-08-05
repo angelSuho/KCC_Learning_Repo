@@ -7,13 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- header -->
-	<jsp:include page="./module/header.jsp"></jsp:include>
-	
-	<!-- body -->
 	<h3>Main 페이지</h3>
-	
-	<!-- footer -->
-	<jsp:include page="./module/footer.jsp"></jsp:include>
 </body>
 </html>

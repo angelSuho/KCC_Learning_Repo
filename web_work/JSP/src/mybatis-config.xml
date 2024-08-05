@@ -7,6 +7,11 @@
 	<typeAliases>
 		<typeAlias type="kosa.model.Board" alias="Board"/>
 		<typeAlias type="kosa.model.Search" alias="Search"/>
+		<typeAlias type="kosa.model.Blog" alias="Blog"/>
+		<typeAlias type="kosa.model.Author" alias="Author"/>
+		<typeAlias type="kosa.model.Member" alias="Member"/>
+		<typeAlias type="kosa.model.Cart" alias="Cart"/>
+		<typeAlias type="kosa.model.CartItem" alias="CartItem"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -20,6 +25,9 @@
 	
 	<mappers>
 		<mapper resource="kosa/mapper/Board.xml"/>
+		<mapper resource="kosa/mapper/Blog.xml"/>
+		<mapper resource="kosa/mapper/Member.xml"/>
+		<mapper resource="kosa/mapper/Cart.xml"/>
 	</mappers>
 	
 </configuration>

@@ -17,8 +17,8 @@
 <%
 	BoardDao2 dao = BoardDao2.getInstance();
 	int re = dao.updateBoard(board);
-	
-	if(re > 0) {
+
+	if(re == 1) {
 		response.sendRedirect("/board/list.jsp");
 	} else {
 		out.println("실패");

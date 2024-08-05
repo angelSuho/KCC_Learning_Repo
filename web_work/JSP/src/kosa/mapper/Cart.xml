@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- namespace를 가진 mapper 인터페이스 만들기 -->
+<mapper namespace="kosa.mapper.CartMapper">
+	<cache />
+	<insert id="insertCart" parameterType="Cart">
+		insert into Cart(cartId, userId)
+		values(cart_seq.nextval, #{userId})	
+	</insert>
+	
+	<select id="selectCartByUserId" parameterType="String" resultType="Cart">
+		select * from Cart
+		where userId = #{userId}
+	</select>
+	
+	<insert id="insertCartItem" parameterType="CartItem">
+		insert into CartItem(cartItemId, cartId, productId, productName, productPrice, quantity)
+		values(cart_item_seq.nextval, #{cartId}, #{productId}, #{productName}, #{productPrice}, #{quantity})
+	</insert>
+	
+	<select id="selectCartItems" parameterType="int" resultType="CartItem">
+		select * from CartItem
+		where cartId = #{cartId}
+	</select>
+	
+	<select id="selectCartItemByCartIdAndProductId" parameterType="map" resultType="CartItem">
+    	select * from CartItem
+   		where cartId = #{cartId} and productId = #{productId}
+	</select>
+	
+	<update id="updateCartItemQuantity" parameterType="map">
+		update CartItem
+		set quantity = #{quantity}
+		where cartItemId = #{cartItemId}
+	</update>
+	
+	<delete id="deleteCartItem">
+		delete from CartItem
+		where cartItemId = #{cartItemId}
+	</delete>
+	
+</mapper>

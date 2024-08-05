@@ -3,12 +3,33 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-
+<!-- namespace를 가진 mapper 인터페이스 만들기 -->
 <mapper namespace="kosa.mapper.BlogMapper">
 	<cache />
-	<select id="selectBlog" parameterType="int" resultType="">
-		select b.id, b.title, b.content, a.author_id, a.name, a.address
-		from blog b, author a where
-		b.author_id = a.author_id and id=${id}
-	</select>	
+
+	<resultMap type="Blog" id="blogResult">
+		<id property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="content" column="content"/>
+		<association property="author" column="author_id" javaType="Author">
+			<id property="author_id" column="author_id"/>
+			<result property="name" column="name"/>
+			<result property="address" column="address"/>
+		</association>
+	</resultMap>
+
+	<select id="selectBlog" parameterType="int" resultMap="blogResult">
+		select
+			b.id as id, 
+			b.title as title, 
+			b.content as content, 
+			a.author_id as author_id, 
+			a.name as name, 
+			a.address as address
+		from blog b, author a
+		where b.author_id = a.author_id
+		and id = #{id}
+	</select>
+
+
 </mapper>

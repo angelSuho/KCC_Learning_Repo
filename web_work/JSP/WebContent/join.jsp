@@ -8,9 +8,8 @@
 </head>
 <body>
 	<h1>결과 출력</h1>
-	결과: <b>${loginId}</b>
-	비밀번호: <b>${password}</b>
-	이메일: <b>${email}</b>
-	번호: <b>${phoneNumber}</b>
+	이름: ${name}
+	나이: ${age}
+	전화번호: ${phone }
 </body>
 </html>

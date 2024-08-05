@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-	request.setCharacterEncoding("utf-8");
+	// request.setCharacterEncoding("utf-8");
 %>
 <!-- 특정한 자바빈 파일을 사용한다고 명시할 때 사용: Board 객체 받아오기 -->
 <!-- Board board = new Board() -->

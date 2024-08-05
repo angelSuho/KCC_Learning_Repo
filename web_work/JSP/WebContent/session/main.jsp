@@ -1,13 +1,11 @@
 <%@page import="java.net.URLDecoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+	pageEncoding="UTF-8"%>
 <%
-	String sess = (String) session.getAttribute("name");
-	
-	if (sess == null) {
+	/* String name = (String)session.getAttribute("name");
+	if(name == null) {
 		response.sendRedirect("loginForm.jsp");
-	}
+	} */
 %>
 
 <!DOCTYPE html>
@@ -17,7 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<b><%= name %>님 반갑습니다.</b>
-<a href="logout.jsp">로그아웃</a>
+	<%-- <b><%=name%></b>님 반갑습니다.<br> --%>
+	<a href="logout.jsp">로그아웃</a>
 </body>
 </html>

@@ -9,34 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class HelloServlet
- */
 @WebServlet({"/HelloServlet", "/hello"})
 public class HelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public HelloServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// ¼­ºñ½º Á¦°ø ³»¿ë (Å¬¶óÀÌ¾ğÆ® ¿ä±¸)
-		
+	protected void doGet(HttpServletRequest request, 
+			HttpServletResponse response) throws ServletException, IOException {
+		// ì„œë¹„ìŠ¤ ì œê³µ ë‚´ìš©(í´ë¼ì´ì–¸íŠ¸ ìš”êµ¬)
 		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
+		PrintWriter out = response.getWriter(); // responseë˜ì„œ í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ì‘ì—…
 		
 		out.println("<html><head><title>hello</title></head>");
 		out.println("<body>");
-		out.println("<h1>Hello Servlet!!</h1>");
+		out.println("<h1>Hello Servlet!!!</h1>");
 		out.println("</body>");
 		out.println("</html>");
 		

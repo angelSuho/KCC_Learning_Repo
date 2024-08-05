@@ -1,7 +1,6 @@
 <%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+	pageEncoding="UTF-8"%>
 <%
 	String m_id = "kosa";
 	String m_pass = "1234";
@@ -12,14 +11,13 @@
 	String m_name = "홍길동";
 	String name = URLEncoder.encode(m_name, "utf-8");
 	
-	if (id.equals(m_id) && pass.equals(m_pass)) {
+	if(id.equals(m_id) && pass.equals(m_pass)) {
 		Cookie cookie = new Cookie("name", name);
 		response.addCookie(cookie);
 	} else {
 		response.sendRedirect("loginForm.jsp");
 	}
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +25,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<a href="main.jsp">메인</a>
+	
 </body>
 </html>

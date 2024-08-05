@@ -3,35 +3,39 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-
+<!-- namespace를 가진 mapper 인터페이스 만들기 -->
 <mapper namespace="kosa.mapper.BoardMapper">
 	<cache />
+	
+	<!-- 1개의 row를 매핑할 것만 정의해주면 됨, 여러 개면 알아서 list로 반환 -->
 	<!-- <select id="listBoard" parameterType="Search" resultType="Board"> -->
 	<select id="listBoard" parameterType="java.util.Map" resultType="Board">
-		select * from board 
+		select * from board
 		<if test="area != null">
 			<where>
-			<!--  where (title LIKE %JSP% OR writer LIKE %JSP%) -->
-			<foreach collection="area" item="item" open="(" close=")" separator="OR">
-				${item} LIKE #{searchKey}
-			</foreach>
+				<!-- where (title LIKE %JSP% OR writer LIKE %JSP%) -->
+				<foreach collection="area" item="item" open="(" close=")" separator="OR">
+					<!-- LIKE 절 컬럼명은 ${} -->
+					${item} LIKE #{searchKey}
+				</foreach>
 			</where>
 		</if>
 		order by seq desc
 	</select>
 	
+	<!-- 파라미터가 하나이면 prarmeterType 생략 가능 -->
 	<select id="detailBoard" parameterType="int" resultType="Board">
-		select * from board where seq=#{seq}
+		select * from board where seq = #{seq}
 	</select>
-	
-	<insert id="insertBoard" parameterType="Board">
-		insert into board(seq, title, writer, contents, regdate, hitcount) 
-		values(board_seq.nextval, #{title}, #{writer}, #{contents}, sysdate, 0)
-	</insert>
 
-	<update id="updateBoard" parameterType="Board">
-		update board set title=#{title}, contents=#{contents} where seq=#{seq}
-	</update>
+	<insert id="insertBoard" parameterType="Board">
+		insert into board(seq, title, writer, contents, regdate, hitcount)
+			values(board_seq.nextval, #{title}, #{writer}, #{contents}, sysdate, 0)
+	</insert>
 	
+	<update id="updateBoard" parameterType="Board">
+		update board set title = #{title}, contents = #{contents}
+		where seq = #{seq}
+	</update>
 	
 </mapper>

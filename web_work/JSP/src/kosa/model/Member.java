@@ -1,7 +1,9 @@
 package kosa.model;
 
-public class Member {
-	private String id;
+import java.io.Serializable;
+
+public class Member implements Serializable {
+	private String userId;
 	private String password;
 	private String name;
 	private int age;
@@ -10,9 +12,9 @@ public class Member {
 	
 	public Member() {}
 
-	public Member(String id, String password, String name, int age, String address, String phone) {
+	public Member(String userId, String password, String name, int age, String address, String phone) {
 		super();
-		this.id = id;
+		this.userId = userId;
 		this.password = password;
 		this.name = name;
 		this.age = age;
@@ -20,12 +22,12 @@ public class Member {
 		this.phone = phone;
 	}
 
-	public String getId() {
-		return id;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getPassword() {
@@ -70,7 +72,7 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", password=" + password + ", name=" + name + ", age=" + age + ", address="
+		return "Member [userId=" + userId + ", password=" + password + ", name=" + name + ", age=" + age + ", address="
 				+ address + ", phone=" + phone + "]";
 	}
 }

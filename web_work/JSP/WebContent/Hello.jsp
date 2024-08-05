@@ -11,6 +11,6 @@
 	<%
 		String name = "홍길동";
 	%>
-	이름: <%= name %>
+	이름: <%=name %>
 </body>
 </html>

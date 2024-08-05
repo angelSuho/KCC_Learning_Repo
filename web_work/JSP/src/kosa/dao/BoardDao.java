@@ -16,13 +16,13 @@ import kosa.model.Board;
 public class BoardDao {
 	private static BoardDao dao = new BoardDao();
 
-	// Dao 硫붿?���뱶 �샇?���?
+	// Dao 메소드 호출
 	public static BoardDao getInstance() {
 		return dao;
 	}
 
-	// JNDI 湲곗?���쓣 �씠�슜�빐�꽌 DBCP ?��?�쁽
-	// DataSource 媛앹�?(Connection Pool) => JNDI �씠?��꾩쑝濡� jdbc/oracle
+	// JNDI 기술을 이용해서 DBCP 구현
+	// DataSource 객체(Connection Pool) => JNDI 이름으로 jdbc/oracle
 	public Connection getDBCPConnection() {
 		DataSource ds = null;
 
@@ -38,7 +38,7 @@ public class BoardDao {
 		return null;
 	}
 
-	// 湲� 1媛� 蹂닿�?
+	// 글 1개 보기
 	public Board detailBoard(int seq) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -53,7 +53,7 @@ public class BoardDao {
 			pstmt.setInt(1, seq);
 			rs = pstmt.executeQuery();
 
-			if (rs.next()) { // rs�뒗 �씠�쟾 媛�?�쓣 媛�?��?�궡, �뵲�씪�꽌 next �빐二쇰?�� 泥� 踰덉?�� row?���? 媛�?��?�궡
+			if (rs.next()) { // rs는 이전 값을 가리킴, 따라서 next 해주면 첫 번째 row를 가리킴
 				board.setSeq(rs.getInt("seq"));
 				board.setTitle(rs.getString("title"));
 				board.setWriter(rs.getString("writer"));
@@ -75,7 +75,7 @@ public class BoardDao {
 
 	}
 
-	// 湲� 紐⑸�? 蹂닿�?
+	// 글 목록 보기
 	public List<Board> listBoard() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -89,8 +89,8 @@ public class BoardDao {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
-			// �븯�굹�쓽 row board 媛앹껜��? �뱾�뼱媛�
-			while (rs.next()) { // 泥� 踰덉?�� row
+			// 하나의 row board 객체에 들어감
+			while (rs.next()) { // 첫 번째 row
 				Board board = new Board();
 				board.setSeq(rs.getInt("seq"));
 				board.setTitle(rs.getString("title"));
@@ -115,9 +115,9 @@ public class BoardDao {
 		return list;
 	}
 
-	// �떛湲��넠 諛⑹?��
+	// 싱글톤 방식
 	public int insert(Board board) {
-		// Connection 媛앹�? �깮�꽦
+		// Connection 객체 생성
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
@@ -127,25 +127,25 @@ public class BoardDao {
 		String password = "1234";
 		int re = -1;
 
-		// ?: ?��?��?�� 媛�?�씠 �뱾�뼱�삱吏� 紐⑤?��湲� �븣?���?
+		// ?: 무슨 값이 들어올지 모르기 때문
 		String sql = "insert into board values(board_seq.nextval, ?, ?, ?, sysdate, 0)";
 
 		try {
-			// 1. JDBC �뱶�씪�씠踰� 濡쒕�?
+			// 1. JDBC 드라이버 로딩
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			// 2. DB �뿰寃�(Connection 媛앹�? �깮�꽦)
+			// 2. DB 연결(Connection 객체 생성)
 			conn = DriverManager.getConnection(url, user, password);
 			System.out.println("conn: " + conn);
 
-			// 3. PrepareStatement 媛앹�? �깮�꽦(SQL 吏덉?��)
+			// 3. PrepareStatement 객체 생성(SQL 질의)
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, board.getTitle());
 			pstmt.setString(2, board.getWriter());
 			pstmt.setString(3, board.getContents());
 
-			// 4. SQL �떎�뻾(insert, update, delete => executeUpdate() => �젙�닔 return (row 媛��닔))
-			re = pstmt.executeUpdate(); // insert �릺?�� sql?���? �걹
+			// 4. SQL 실행(insert, update, delete => executeUpdate() => 정수 return (row 갯수))
+			re = pstmt.executeUpdate(); // insert 되고 sql문 끝
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

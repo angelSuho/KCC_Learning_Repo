@@ -1,16 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+	pageEncoding="UTF-8"%>
 <%
-	String sess = (String) session.getAttribute("name");
-	
-	if (sess == null) {
+	/* String name = (String)session.getAttribute("name");
+	if(name == null) {
 		response.sendRedirect("loginForm.jsp");
-	}
+	} */
 	
 	session.invalidate();
 %>
-   
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +15,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	
 </body>
 </html>
