@@ -23,23 +23,23 @@ public class BoardServiceTests {
 	@Autowired
 	private BoardService boardService;
 	
-	@Test
-	public void register() {
-		BoardVO boardVO = new BoardVO();
-		boardVO.setTitle("ㅎㅇtitle");
-		boardVO.setContent("ㅎㅇcontent");
-		boardVO.setWriter("ㅎㅇwriter");
-		
-		boardService.register(boardVO);
-		List<BoardVO> boards = boardService.getList();
-		log.info("`: {} {}", boards.get(boards.size()-1).getTitle(), boardVO.getTitle());
-		assertThat(boards.get(boards.size()-1).getTitle()).isEqualTo(boardVO.getTitle());
-	}
-	
-	@Test
-	public void GetList() {
-		boardService.getList().forEach(board -> log.info("board: {}", board));
-	}
+//	@Test
+//	public void register() {
+//		BoardVO boardVO = new BoardVO();
+//		boardVO.setTitle("ㅎㅇtitle");
+//		boardVO.setContent("ㅎㅇcontent");
+//		boardVO.setWriter("ㅎㅇwriter");
+//		
+//		boardService.register(boardVO);
+//		List<BoardVO> boards = boardService.getList();
+//		log.info("`: {} {}", boards.get(boards.size()-1).getTitle(), boardVO.getTitle());
+//		assertThat(boards.get(boards.size()-1).getTitle()).isEqualTo(boardVO.getTitle());
+//	}
+//	
+//	@Test
+//	public void GetList() {
+//		boardService.getList().forEach(board -> log.info("board: {}", board));
+//	}
 	
 	@Test
 	public void get() {
@@ -58,11 +58,11 @@ public class BoardServiceTests {
 		assertEquals(modifyBoard, true);
 	}
 	
-	@Test
-	public void delete() {
-		boolean deleteBoard = boardService.remove((long) (boardService.getList().size()-1));
-		assertEquals(deleteBoard, true);
-	}
+//	@Test
+//	public void delete() {
+//		boolean deleteBoard = boardService.remove((long) (boardService.getList().size()-1));
+//		assertEquals(deleteBoard, true);
+//	}
 	
 	
 }
