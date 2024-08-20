@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import com.kcc.restful.bean.AdminUser;
 import com.kcc.restful.bean.User;
-import com.kcc.restful.bean.UserDaoService;
 import com.kcc.restful.exception.UserNotFoundException;
+import com.kcc.restful.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -24,11 +24,12 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/admin")
 public class AdminUserController {
-    private final UserDaoService userDaoService;
+//    private final UserDaoService userDaoService;
+    private final UserService userService;
 
     @GetMapping("/users")
     public MappingJacksonValue retrieveAllUsers() {
-        List<User> users = userDaoService.findAll();
+        List<User> users = userService.findAll();
         List<AdminUser> adminUsers = new ArrayList<>();
 
         for (User user : users) {
@@ -46,20 +47,20 @@ public class AdminUserController {
         return mapping;
     }
 
-    @PostMapping("/users")
-    public ResponseEntity<User> createUser(@RequestBody @Valid User user) {
-        User savedUser = userDaoService.save(user);
-
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(savedUser.getId())
-                .toUri();
-        return ResponseEntity.created(location).build();
-    }
+//    @PostMapping("/users")
+//    public ResponseEntity<User> createUser(@RequestBody @Valid User user) {
+//        userService.createUser(user);
+//
+//        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+//                .path("/{id}")
+//                .buildAndExpand(savedUser.getId())
+//                .toUri();
+//        return ResponseEntity.created(location).build();
+//    }
 
     @GetMapping("/users/{id}")
     public MappingJacksonValue retrieveUser(@PathVariable(value = "id") int id) {
-        User user = userDaoService.findOne(id);
+        User user = userService.findUser(id);
         AdminUser adminUser = new AdminUser();
 
         if (user == null) {
@@ -77,14 +78,14 @@ public class AdminUserController {
         return mapping;
     }
 
-    @DeleteMapping("/users/{id}")
-    public ResponseEntity<User> deleteUser(@PathVariable(value = "id") int id) {
-        User user = userDaoService.deleteById(id);
-
-        if (user == null) {
-            throw new UserNotFoundException(HttpStatus.NOT_FOUND, String.format("ID[%s] not found", id));
-        }
-
-        return ResponseEntity.ok().body(user);
-    }
+//    @DeleteMapping("/users/{id}")
+//    public ResponseEntity<User> deleteUser(@PathVariable(value = "id") int id) {
+//        User user = userDaoService.deleteById(id);
+//
+//        if (user == null) {
+//            throw new UserNotFoundException(HttpStatus.NOT_FOUND, String.format("ID[%s] not found", id));
+//        }
+//
+//        return ResponseEntity.ok().body(user);
+//    }
 }
