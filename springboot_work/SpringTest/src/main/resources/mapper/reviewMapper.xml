@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kcc.springtest.domain.review.repository.mapper.ReviewMapper">
+    <resultMap id="reviewMap" type="Review">
+        <id property="id" column="id"/>
+        <result property="content" column="content"/>
+        <result property="score" column="score"/>
+        <result property="created_at" column="created_at"/>
+        <result property="restaurant_id" column="restaurant_id"/>
+    </resultMap>
+
+    <insert id="saveReview" parameterType="Review">
+        insert into review(id, content, score, created_at, restaurant_id)
+        values(REVIEW_SEQ.nextval, #{content}, #{score}, systimestamp, #{restaurant_id})
+    </insert>
+
+    <delete id="deleteReview" parameterType="long">
+        delete from review where id = #{id}
+    </delete>
+
+    <select id="findById" resultMap="reviewMap" parameterType="long">
+        select id, content, score, created_at, restaurant_id
+        from review where id = #{id}
+    </select>
+
+    <select id="findAll" resultType="ReviewResponse" parameterType="map">
+       <![CDATA[
+        SELECT * FROM
+            (
+                SELECT inner_query.*, ROWNUM rnum
+                FROM (
+                         SELECT id, content, score, created_at, restaurant_id
+                         FROM review
+                         WHERE restaurant_id = #{restaurant_id}
+                         ORDER BY created_at DESC
+                     ) inner_query
+                WHERE ROWNUM <= #{limit}
+            )
+        WHERE rnum >= #{offset}
+        ]]>
+    </select>
+
+    <select id="findAvgScore" resultType="float" parameterType="long">
+        select avg(score) from review where restaurant_id = #{restaurant_id}
+    </select>
+
+</mapper>
