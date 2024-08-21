@@ -5,6 +5,7 @@ import com.kcc.springtest.domain.review.model.ReviewPageResponse;
 import com.kcc.springtest.domain.review.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,7 +14,7 @@ public class ReviewController {
     private final ReviewService reviewService;
 
     @PostMapping("/review")
-    public ResponseEntity<Void> createReview(@RequestBody Review review) {
+    public ResponseEntity<Void> createReview(@RequestBody @Validated Review review) {
         reviewService.saveReview(review);
         return ResponseEntity.ok().build();
     }

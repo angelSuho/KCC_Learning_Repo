@@ -2,9 +2,9 @@ server:
   port: 8085
 spring:
   datasource:
-    url: jdbc:oracle:thin:@localhost:1521:xe
-    username: kcc
-    password: 1234
+    url: jdbc:oracle:thin:@localhost:9091:xe
+    username: system
+    password: oracle
     driver-class-name: oracle.jdbc.OracleDriver
   sql:
     init:

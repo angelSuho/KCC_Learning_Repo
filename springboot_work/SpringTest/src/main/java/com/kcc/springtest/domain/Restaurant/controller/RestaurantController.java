@@ -6,6 +6,7 @@ import com.kcc.springtest.domain.Restaurant.service.RestaurantService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -17,7 +18,8 @@ public class RestaurantController {
     private final RestaurantService restaurantService;
 
     @PostMapping("restaurant")
-    public ResponseEntity<Void> createRestaurant(@RequestBody Restaurant restaurant, HttpServletRequest request) {
+    public ResponseEntity<Void> createRestaurant(HttpServletRequest request,
+                                                 @RequestBody @Validated Restaurant restaurant) {
         restaurantService.saveRestaurant(restaurant);
         return ResponseEntity.created(URI.create(request.getRequestURL() + "/" + restaurant.getId())).build();
     }
@@ -29,7 +31,8 @@ public class RestaurantController {
     }
 
     @PutMapping("/restaurant/{id}")
-    public ResponseEntity<Restaurant> updateRestaurant(@PathVariable Long id, @RequestBody Restaurant restaurant) {
+    public ResponseEntity<Restaurant> updateRestaurant(@PathVariable Long id,
+                                                       @RequestBody @Validated Restaurant restaurant) {
         restaurantService.updateRestaurant(id, restaurant);
         return ResponseEntity.ok().build();
     }

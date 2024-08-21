@@ -34,12 +34,15 @@ public class ReviewService {
 
         Map<String, Long> map = new HashMap<>();
         map.put("restaurant_id", restaurantId);
-        map.put("offset", (((long) pageNumber * limit) - 1));
+        map.put("offset", (long) (pageNumber - 1) * limit);
         map.put("limit", (long) limit);
-        List<ReviewResponse> reviewResponses = reviewRepository.findAll(map);
+
+//        List<ReviewResponse> reviewResponses = reviewRepository.findAll(map);
+//        ReviewPageResponse reviewResponses = reviewRepository.findAll(map);
         Float avgScore = reviewRepository.findAvgScore(restaurantId);
 
-
-        return ReviewPageResponse.of(avgScore, reviewResponses, new PageResponse(pageNumber * limit - 1, limit));
+//        return new ReviewPageResponse(avgScore, reviewResponses,
+//                new PageResponse(Math.toIntExact(map.get("offset")), Math.toIntExact(map.get("limit"))));
+        return reviewRepository.findAll(map);
     }
 }

@@ -1,6 +1,7 @@
 package com.kcc.springtest.domain.review.repository.mapper;
 
 import com.kcc.springtest.domain.review.model.Review;
+import com.kcc.springtest.domain.review.model.ReviewPageResponse;
 import com.kcc.springtest.domain.review.model.ReviewResponse;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -11,6 +12,6 @@ import java.util.Map;
 public interface ReviewMapper {
     void saveReview(Review review);
     void deleteReview(Long id);
-    List<ReviewResponse> findAll(Map<String, Long>map);
+    ReviewPageResponse findAll(Map<String, Long>map);
     Float findAvgScore(Long restaurantId);
 }

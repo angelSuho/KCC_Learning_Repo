@@ -1,6 +1,7 @@
 package com.kcc.springtest.domain.review.repository;
 
 import com.kcc.springtest.domain.review.model.Review;
+import com.kcc.springtest.domain.review.model.ReviewPageResponse;
 import com.kcc.springtest.domain.review.model.ReviewResponse;
 import com.kcc.springtest.domain.review.repository.mapper.ReviewMapper;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +27,7 @@ public class ReviewRepositoryImpl implements ReviewRepository {
     }
 
     @Override
-    public List<ReviewResponse> findAll(Map<String, Long> map) {
+    public ReviewPageResponse findAll(Map<String, Long> map) {
         return reviewMapper.findAll(map);
     }
 

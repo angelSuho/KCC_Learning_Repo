@@ -4,7 +4,9 @@ import com.kcc.springtest.domain.Restaurant.model.Restaurant;
 import com.kcc.springtest.domain.Restaurant.model.RestaurantResponse;
 import com.kcc.springtest.domain.Restaurant.repository.RestaurantRepository;
 import com.kcc.springtest.domain.menu.service.MenuService;
+import com.kcc.springtest.global.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,7 +39,8 @@ public class RestaurantService {
     public void updateRestaurant(Long id, Restaurant restaurant) {
         restaurant.setId(id);
         restaurantRepository.updateRestaurant(restaurant);
-        RestaurantResponse restaurantResponse = restaurantRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 레스토랑입니다."));
+        RestaurantResponse restaurantResponse = restaurantRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("존재하지 않는 레스토랑입니다.", HttpStatus.NOT_FOUND));
         menuService.deleteMenusByRestaurantId(restaurantResponse.getId());
 
         restaurant.getMenus().forEach(menu -> {
@@ -46,7 +49,8 @@ public class RestaurantService {
     }
 
     public RestaurantResponse findById(Long id) {
-        return restaurantRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 레스토랑입니다."));
+        return restaurantRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("존재하지 않는 레스토랑입니다.", HttpStatus.NOT_FOUND));
     }
 
     public List<Restaurant> findAll() {

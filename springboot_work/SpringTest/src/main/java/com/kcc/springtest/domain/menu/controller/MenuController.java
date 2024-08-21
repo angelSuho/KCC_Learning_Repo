@@ -2,8 +2,10 @@ package com.kcc.springtest.domain.menu.controller;
 
 import com.kcc.springtest.domain.menu.model.Menu;
 import com.kcc.springtest.domain.menu.service.MenuService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -16,7 +18,8 @@ public class MenuController {
     private final MenuService menuService;
 
     @PostMapping("/{restaurantId}")
-    public ResponseEntity<Menu> createMenu(@PathVariable(value = "restaurantId") Long id, @RequestBody Menu menu) {
+    public ResponseEntity<Menu> createMenu(@PathVariable(value = "restaurantId") Long id,
+                                           @RequestBody @Validated Menu menu) {
         menuService.saveMenu(id, menu);
         return ResponseEntity.created(URI.create("/" + menu.getId())).build();
     }

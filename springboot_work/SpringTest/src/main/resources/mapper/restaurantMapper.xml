@@ -10,7 +10,7 @@
         <result property="address" column="address"/>
         <result property="created_at" column="created_at"/>
         <result property="updated_at" column="updated_at"/>
-        <collection property="menus" ofType="MenuResponse" resultMap="menuMap" column="menu_id" javaType="ArrayList"/>
+        <collection property="menus" resultMap="menuMap" column="menu_id" javaType="ArrayList"/>
     </resultMap>
 
     <resultMap id="menuMap" type="MenuResponse">
