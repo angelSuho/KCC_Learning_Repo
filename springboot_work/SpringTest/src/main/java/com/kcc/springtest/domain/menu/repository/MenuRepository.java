@@ -5,11 +5,11 @@ import com.kcc.springtest.domain.menu.model.Menu;
 import java.util.List;
 
 public interface MenuRepository {
-    void saveMenu(Menu menu);
-    List<Menu> saveMenus(List<Menu> menus);
-    void deleteMenu(Long id);
-    void deleteMenusByRestaurantId(Long restaurant_id);
-    void updateMenu(Menu menu);
+    int saveMenu(Menu menu);
+    int saveMenus(List<Menu> menus);
+    int deleteMenu(Long id);
+    int deleteMenusByRestaurantId(Long restaurant_id);
+    int updateMenu(Menu menu);
     Menu findById(Long id);
     List<Menu> findAll(Long id);
 }

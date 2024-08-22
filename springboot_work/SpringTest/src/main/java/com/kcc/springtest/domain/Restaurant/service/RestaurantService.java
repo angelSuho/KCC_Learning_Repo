@@ -4,6 +4,7 @@ import com.kcc.springtest.domain.Restaurant.model.Restaurant;
 import com.kcc.springtest.domain.Restaurant.model.RestaurantResponse;
 import com.kcc.springtest.domain.Restaurant.repository.RestaurantRepository;
 import com.kcc.springtest.domain.menu.service.MenuService;
+import com.kcc.springtest.global.exception.BadRequestException;
 import com.kcc.springtest.global.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,10 @@ public class RestaurantService {
 
     @Transactional
     public void saveRestaurant(Restaurant restaurant) {
-        restaurantRepository.saveRestaurant(restaurant);
+        int isPass = restaurantRepository.saveRestaurant(restaurant);
+        if (isPass == 0) {
+            throw new BadRequestException("입력 정보를 다시 확인해주세요.", HttpStatus.BAD_REQUEST);
+        }
 
         restaurant.getMenus().forEach(menu -> {
             menuService.saveMenu(restaurant.getId(), menu);
@@ -32,13 +36,20 @@ public class RestaurantService {
 
     @Transactional
     public void deleteRestaurant(Long id) {
-        restaurantRepository.deleteRestaurant(id);
+        int isPass = restaurantRepository.deleteRestaurant(id);
+        if (isPass == 0) {
+            throw new NotFoundException("존재하지 않는 레스토랑입니다.", HttpStatus.NOT_FOUND);
+        }
     }
 
     @Transactional
     public void updateRestaurant(Long id, Restaurant restaurant) {
         restaurant.setId(id);
-        restaurantRepository.updateRestaurant(restaurant);
+        int isPass = restaurantRepository.updateRestaurant(restaurant);
+        if (isPass == 0) {
+            throw new BadRequestException("입력 정보를 다시 확인해주세요.", HttpStatus.BAD_REQUEST);
+        }
+
         RestaurantResponse restaurantResponse = restaurantRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("존재하지 않는 레스토랑입니다.", HttpStatus.NOT_FOUND));
         menuService.deleteMenusByRestaurantId(restaurantResponse.getId());

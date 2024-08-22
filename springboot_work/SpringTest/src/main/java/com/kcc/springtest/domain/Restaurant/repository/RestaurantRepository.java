@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface RestaurantRepository {
-    Restaurant saveRestaurant(Restaurant restaurant);
-    void deleteRestaurant(Long id);
-    void updateRestaurant(Restaurant restaurant);
+    int saveRestaurant(Restaurant restaurant);
+    int deleteRestaurant(Long id);
+    int updateRestaurant(Restaurant restaurant);
     Optional<RestaurantResponse> findById(Long id);
     List<Restaurant> findAll();
 }

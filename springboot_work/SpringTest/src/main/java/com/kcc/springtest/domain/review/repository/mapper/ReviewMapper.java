@@ -10,8 +10,8 @@ import java.util.Map;
 
 @Mapper
 public interface ReviewMapper {
-    void saveReview(Review review);
-    void deleteReview(Long id);
+    int saveReview(Review review);
+    int deleteReview(Long id);
     ReviewPageResponse findAll(Map<String, Long>map);
     Float findAvgScore(Long restaurantId);
 }

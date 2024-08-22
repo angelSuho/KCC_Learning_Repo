@@ -15,19 +15,18 @@ public class RestaurantRepositoryImpl implements RestaurantRepository {
     private final RestaurantMapper restaurantMapper;
 
     @Override
-    public Restaurant saveRestaurant(Restaurant restaurant) {
-        restaurantMapper.saveRestaurant(restaurant);
-        return restaurant;
+    public int saveRestaurant(Restaurant restaurant) {
+        return restaurantMapper.saveRestaurant(restaurant);
     }
 
     @Override
-    public void deleteRestaurant(Long id) {
-        restaurantMapper.deleteRestaurant(id);
+    public int deleteRestaurant(Long id) {
+        return restaurantMapper.deleteRestaurant(id);
     }
 
     @Override
-    public void updateRestaurant(Restaurant restaurant) {
-        restaurantMapper.updateRestaurant(restaurant);
+    public int updateRestaurant(Restaurant restaurant) {
+        return restaurantMapper.updateRestaurant(restaurant);
     }
 
     @Override

@@ -5,8 +5,6 @@ import com.kcc.restful.bean.User;
 import com.kcc.restful.exception.UserNotFoundException;
 import com.kcc.restful.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

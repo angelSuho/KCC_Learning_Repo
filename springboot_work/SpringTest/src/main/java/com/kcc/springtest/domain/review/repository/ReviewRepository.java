@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface ReviewRepository {
-    void saveReview(Review review);
-    void deleteReview(Long id);
+    int saveReview(Review review);
+    int deleteReview(Long id);
     ReviewPageResponse findAll(Map<String, Long> map);
     Float findAvgScore(Long restaurantId);
 }

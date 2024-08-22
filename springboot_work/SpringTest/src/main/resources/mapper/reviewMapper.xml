@@ -48,7 +48,7 @@
                          WHERE restaurant_id = #{restaurant_id}
                          ORDER BY created_at DESC
                      ) inner_query
-                WHERE ROWNUM <= #{limit}
+                WHERE ROWNUM <= #{limit} + #{offset}
             ) re
         WHERE rnum >= #{offset}
         ]]>

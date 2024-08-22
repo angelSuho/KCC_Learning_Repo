@@ -9,9 +9,9 @@ import java.util.Optional;
 
 @Mapper
 public interface RestaurantMapper {
-    void saveRestaurant(Restaurant restaurant);
-    void deleteRestaurant(Long id);
-    void updateRestaurant(Restaurant restaurant);
+    int saveRestaurant(Restaurant restaurant);
+    int deleteRestaurant(Long id);
+    int updateRestaurant(Restaurant restaurant);
     Optional<RestaurantResponse> findById(Long id);
     List<Restaurant> findAll();
 }

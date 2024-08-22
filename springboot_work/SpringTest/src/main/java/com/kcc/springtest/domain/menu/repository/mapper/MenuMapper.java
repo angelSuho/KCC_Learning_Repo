@@ -7,11 +7,11 @@ import java.util.List;
 
 @Mapper
 public interface MenuMapper {
-    void saveMenu(Menu menu);
-    List<Menu> saveMenus(List<Menu> menus);
-    void deleteMenu(Long id);
-    void deleteMenusByRestaurantId(Long restaurant_id);
-    void updateMenu(Menu menu);
+    int  saveMenu(Menu menu);
+    int saveMenus(List<Menu> menus);
+    int deleteMenu(Long id);
+    int deleteMenusByRestaurantId(Long restaurant_id);
+    int updateMenu(Menu menu);
     Menu findById(Long id);
     List<Menu> findAll(Long restaurant_id);
 }

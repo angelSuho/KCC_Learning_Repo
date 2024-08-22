@@ -14,28 +14,28 @@ public class MenuRepositoryImpl implements MenuRepository{
     private final MenuMapper menuMapper;
 
     @Override
-    public void saveMenu(Menu menu) {
-        menuMapper.saveMenu(menu);
+    public int saveMenu(Menu menu) {
+        return menuMapper.saveMenu(menu);
     }
 
     @Override
-    public List<Menu> saveMenus(List<Menu> menus) {
+    public int saveMenus(List<Menu> menus) {
         return menuMapper.saveMenus(menus);
     }
 
     @Override
-    public void deleteMenu(Long id) {
-        menuMapper.deleteMenu(id);
+    public int deleteMenu(Long id) {
+        return menuMapper.deleteMenu(id);
     }
 
     @Override
-    public void deleteMenusByRestaurantId(Long restaurant_id) {
-        menuMapper.deleteMenusByRestaurantId(restaurant_id);
+    public int deleteMenusByRestaurantId(Long restaurant_id) {
+        return menuMapper.deleteMenusByRestaurantId(restaurant_id);
     }
 
     @Override
-    public void updateMenu(Menu menu) {
-        menuMapper.updateMenu(menu);
+    public int updateMenu(Menu menu) {
+        return menuMapper.updateMenu(menu);
     }
 
     @Override

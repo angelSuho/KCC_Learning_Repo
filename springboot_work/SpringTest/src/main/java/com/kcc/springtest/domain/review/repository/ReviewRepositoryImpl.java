@@ -17,13 +17,13 @@ public class ReviewRepositoryImpl implements ReviewRepository {
 
 
     @Override
-    public void saveReview(Review review) {
-        reviewMapper.saveReview(review);
+    public int saveReview(Review review) {
+        return reviewMapper.saveReview(review);
     }
 
     @Override
-    public void deleteReview(Long id) {
-        reviewMapper.deleteReview(id);
+    public int deleteReview(Long id) {
+        return reviewMapper.deleteReview(id);
     }
 
     @Override
