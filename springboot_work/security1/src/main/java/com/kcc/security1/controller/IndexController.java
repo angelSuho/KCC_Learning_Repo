@@ -1,10 +1,13 @@
 package com.kcc.security1.controller;
 
+import com.kcc.security1.auth.PrincipalDetails;
 import com.kcc.security1.model.User;
 import com.kcc.security1.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +33,10 @@ public class IndexController {
 
     @GetMapping("/user")
     @ResponseBody
-    public String user() {
+    public String user(@AuthenticationPrincipal PrincipalDetails details) {
+        if (!details.getUser().getRole().equals("ROLE_USER")) {
+            throw new AccessDeniedException("You don't have permission");
+        }
         return "user";
     }
 

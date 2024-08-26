@@ -26,6 +26,26 @@ public class User {
     private String email;
     private String role; // ROLE_USER, ROLE_ADMIN
 
+    private String provider;
+    private String providerId;
+
     @CreationTimestamp
     private Timestamp createDate;
+
+    public User(String username, String password, String email, String role) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.role = role;
+        this.provider = provider;
+        this.providerId = providerId;
+    }
+
+    public User(String username, String email, String role, String provider, String providerId) {
+        this.username = username;
+        this.email = email;
+        this.role = role;
+        this.provider = provider;
+        this.providerId = providerId;
+    }
 }

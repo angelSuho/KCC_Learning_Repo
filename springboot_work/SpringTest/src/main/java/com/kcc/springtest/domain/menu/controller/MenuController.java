@@ -5,6 +5,7 @@ import com.kcc.springtest.domain.menu.service.MenuService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/menus")
 @Tag(name = "메뉴 API")
+@Slf4j
 public class MenuController {
     private final MenuService menuService;
 
@@ -23,7 +25,8 @@ public class MenuController {
     @PostMapping("/{restaurantId}")
     public ResponseEntity<Menu> createMenu(@PathVariable(value = "restaurantId") Long id,
                                            @RequestBody @Validated Menu menu) {
-        menuService.saveMenu(id, menu);
+        System.out.println("index is called by POST /menus/{restaurantId}");
+        log.info("index is called by POST /menus/{restaurantId}");
         return ResponseEntity.created(URI.create("/" + menu.getId())).build();
     }
 

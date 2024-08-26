@@ -1,5 +1,5 @@
 server:
-    port: 8081
+    port: 8082
 
 spring:
   datasource:
@@ -18,3 +18,13 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${oauth.google.client-id}
+            client-secret: ${oauth.google.client-secret}
+            scope:
+              - email
+              - profile
