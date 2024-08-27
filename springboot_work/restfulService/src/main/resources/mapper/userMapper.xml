@@ -12,7 +12,7 @@
         <id property="id" column="u_id"/>
         <result property="name" column="name"/>
         <result property="joinDate" column="joinDate"/>
-        <result property="password" column="password"/>
+        <result property="password" column=" password"/>
         <result property="ssn" column="ssn"/>
         <collection property="posts" resultMap="postMap"/>
     </resultMap>
